@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <style>
+        .checked{
+            color:gold;
+        }
+        .btns{
+            background-color: inherit !important;
+            border: 0 !important;
+            font-size: 30px;
+        }
+        a{
+            text-decoration: none;
+            font-size: 35px;
+            color: black;
+            text-transform: uppercase;
+            font-family: serif;
+            transition: 1s all;
+        }
+        a:hover{
+            box-shadow: inset 100px 0px #000;
+            color: #fff;
+        }
+    </style>
+    {% if rate %}
+    <div>
+        <img src="{{ rate.img.url }}" height="500">
+    </div>
+    <form class="rate-form" method="post" id="{{ rate.id }}">
+        {% csrf_token %}
+        <button type="submit" class="fa-solid fa-star btns" id="first"></button>
+        <button type="submit" class="fa-solid fa-star btns" id="second"></button>
+        <button type="submit" class="fa-solid fa-star btns" id="third"></button>
+        <button type="submit" class="fa-solid fa-star btns" id="fourth"></button>
+        <button type="submit" class="fa-solid fa-star btns" id="fifth"></button>
+        <br>
+        
+    </form>
+    
+    <div id="confirm-box"></div>
+    <a href="{% url 'app:home' %}">next</a>
+    {% else %}
+    <h1>Baholash uchun rasm qoldi.</h1>
+    {% endif %}
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</body>
+</html>
