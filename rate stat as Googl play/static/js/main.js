@@ -103,7 +103,6 @@ if (one) {
     		}
     		isSubmit = true
     		const id = e.target.id
-    		console.log(id)
     		const val_num = getNumericValue(val)
 
 
@@ -116,12 +115,10 @@ if (one) {
     				"val": val_num,
     			},
     			success: function(response) {
-    				console.log(response)
-    				confirmBox.innerHTML = `<h1>Succesfully rated with ${response.score}</h1>`
+    				confirmBox.innerHTML = `<h2>omadli baholandi ${response.score}</h2>`
     			},
     			error: function(error) {
-    				console.log(error)
-    				confirmBox.innerHTML = `<h1>Ooops, something went wrong!</h1>`
+    				confirmBox.innerHTML = `<h2>Voy! Nimadir Xato ketdi, Iltomos kodlarnigizni tekshiring</h2>`
     			},
     		})
     	})
